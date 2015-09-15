@@ -1,6 +1,6 @@
 #!/bin/bash
 
-exec="/usr/bin/gunicorn"
+exec="${ENVDIR}/bin/gunicorn"
 
 # if empty, display help
 if [[ $# -eq 0 ]]; then
