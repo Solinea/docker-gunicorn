@@ -1,6 +1,6 @@
 # vim:set ft=dockerfile:
 
-FROM solinea/python
+FROM solinea-docker-community.artifactoryonline.com/python:2.7
 
 MAINTAINER Luke Heidecke <luke@solinea.com>
 
@@ -17,13 +17,8 @@ RUN useradd -d ${APPDIR} ${APPUSER} \
   && mkdir ${ENVDIR} \
   && chown -R ${APPUSER}:${APPUSER} ${ENVDIR}
 
-RUN apt-get update -y -q -q \
-  && apt-get clean \
-  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
 USER $APPUSER
 
 RUN virtualenv ${ENVDIR} \
   && . ${ENVDIR}/bin/activate \
   && pip install gunicorn
-
