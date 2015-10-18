@@ -4,6 +4,8 @@ FROM solinea-docker-community.artifactoryonline.com/python:2.7
 
 MAINTAINER Luke Heidecke <luke@solinea.com>
 
+ENV GUNICORN_VERSION 19.3.0
+
 ENV APPDIR /home/app
 ENV APPUSER app
 ENV ENVDIR /venv
@@ -21,4 +23,4 @@ USER $APPUSER
 
 RUN virtualenv ${ENVDIR} \
   && . ${ENVDIR}/bin/activate \
-  && pip install gunicorn
+  && pip install gunicorn==${GUNICORN_VERSION}
