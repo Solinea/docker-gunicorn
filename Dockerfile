@@ -1,6 +1,6 @@
 # vim:set ft=dockerfile:
 
-FROM solinea-docker-community.artifactoryonline.com/python:2.7
+FROM solinea/python:2.7
 
 MAINTAINER Luke Heidecke <luke@solinea.com>
 
